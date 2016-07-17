@@ -1,0 +1,14 @@
+#source 'https://github.com/CocoaPods/Specs.git
+
+platform :ios, '8.0'
+inhibit_all_warnings!
+use_frameworks!
+
+target ‘WeatherApp’ do
+
+# Networking - Alamofire
+pod 'Alamofire'
+pod 'AlamofireObjectMapper'
+pod 'AlamofireNetworkActivityIndicator'
+
+end
