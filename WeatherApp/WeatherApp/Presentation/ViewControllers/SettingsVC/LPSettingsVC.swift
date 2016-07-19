@@ -14,6 +14,8 @@ class LPSettingsVC: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet private var tableView: UITableView!
+    
     // MARK: - Public Properties
     
     // MARK: - Private Properties

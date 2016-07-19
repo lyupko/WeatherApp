@@ -17,9 +17,19 @@ class LPWeatherAPI {
         return request(.GET, baseURL: WeatherConstant.autocompleteURL, endpoint: "aq", parameters: ["query": query ?? ""], completion: completion)
     }
     
+    class func getWeatherByCurrentLocation(completion: CompletionBlock?) -> Request {
+        let coordinate = LPLocationManager.instance.currentCoordinate
+        
+        let params = ["lon": coordinate.longitude,
+                      "lat": coordinate.latitude
+                      ]
+        return request(.GET, baseURL: WeatherConstant.autocompleteURL, endpoint: "aq", parameters: params, completion: completion)
+    }
     
-    
-    
+    class func getWeather(zmw zmw: String?, completion: CompletionBlock?) -> Request {
+        let params = ["zmw": zmw ?? ""]
+        return request(.GET, baseURL: WeatherConstant.autocompleteURL, endpoint: "aq", parameters: params, completion: completion)
+    }
 }
 
 

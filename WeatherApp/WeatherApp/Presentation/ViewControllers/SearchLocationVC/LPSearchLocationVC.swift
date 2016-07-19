@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class LPSearchLocationVC: UIViewController {
     
@@ -102,7 +103,7 @@ class LPSearchLocationVC: UIViewController {
     }
     
     @objc private func searchLocation(text: String) {
-        
+        SVProgressHUD.show()
     }
     
     private func addToFavorite() {
@@ -113,6 +114,7 @@ class LPSearchLocationVC: UIViewController {
 extension LPSearchLocationVC: UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        SVProgressHUD.dismiss()
         NSObject.cancelPreviousPerformRequestsWithTarget(self)
         self.performSelector(#selector(searchLocation), withObject: searchText, afterDelay: 0.5)
     }
@@ -132,7 +134,7 @@ extension LPSearchLocationVC: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("LocationTVCell")
+        let cell = tableView.dequeueReusableCellWithIdentifier(String(LPLocationTVCell))
         return cell!
     }
     

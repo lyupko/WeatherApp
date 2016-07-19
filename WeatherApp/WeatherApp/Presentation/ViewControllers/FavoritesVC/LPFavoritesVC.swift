@@ -14,6 +14,12 @@ class LPFavoritesVC: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet private var tableView: UITableView! {
+        didSet {
+            tableView.tableFooterView = UIView(frame: CGRectZero)
+        }
+    }
+    
     // MARK: - Public Properties
     
     // MARK: - Private Properties
@@ -33,5 +39,40 @@ class LPFavoritesVC: UIViewController {
     }
     
     // MARK: - Private methods
+    
+    private func deleteLocation(atIndexPath indexPath: NSIndexPath) {
+        
+    }
+}
+
+extension LPFavoritesVC: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        guard editingStyle == .Delete else {
+            return
+        }
+        
+        deleteLocation(atIndexPath: indexPath)
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+}
+
+extension LPFavoritesVC: UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6//locationsList.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(String(LPLocationTVCell))
+        return cell!
+    }
     
 }

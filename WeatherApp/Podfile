@@ -11,4 +11,7 @@ pod 'Alamofire'
 pod 'AlamofireObjectMapper'
 pod 'AlamofireNetworkActivityIndicator'
 
+# UI
+pod 'SVProgressHUD'
+
 end
