@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4240A562B4FCFDC3D9B901A6 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C92FA9BDB956D02004F4CC /* Pods_WeatherApp.framework */; };
+		AE3A71241D3DEA05001993CD /* LPWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A71231D3DEA05001993CD /* LPWeatherAPI.swift */; };
+		AE3A71261D3DEA70001993CD /* WeatherConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A71251D3DEA6F001993CD /* WeatherConstant.swift */; };
+		AE3A71321D3E2ABB001993CD /* LPFavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A71311D3E2ABB001993CD /* LPFavoritesVC.swift */; };
+		AE3A71341D3E2ACE001993CD /* LPMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A71331D3E2ACE001993CD /* LPMainVC.swift */; };
+		AE3A71361D3E2AE0001993CD /* LPSearchLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A71351D3E2AE0001993CD /* LPSearchLocationVC.swift */; };
+		AE3A71381D3E2AF2001993CD /* LPSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A71371D3E2AF2001993CD /* LPSettingsVC.swift */; };
+		AE3A713B1D3E3683001993CD /* LPLocationTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A713A1D3E3683001993CD /* LPLocationTVCell.swift */; };
 		AE9CA9ED1D3C36CD00E43D97 /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9CA9EC1D3C36CD00E43D97 /* WeatherAppUITests.swift */; };
 		AE9CAA001D3C374F00E43D97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9CA9F81D3C374F00E43D97 /* AppDelegate.swift */; };
 		AE9CAA021D3C374F00E43D97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9CA9FC1D3C374F00E43D97 /* LaunchScreen.storyboard */; };
@@ -27,6 +34,13 @@
 
 /* Begin PBXFileReference section */
 		9E55EF04CC8A964C0D723816 /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
+		AE3A71231D3DEA05001993CD /* LPWeatherAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPWeatherAPI.swift; sourceTree = "<group>"; };
+		AE3A71251D3DEA6F001993CD /* WeatherConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherConstant.swift; sourceTree = "<group>"; };
+		AE3A71311D3E2ABB001993CD /* LPFavoritesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPFavoritesVC.swift; sourceTree = "<group>"; };
+		AE3A71331D3E2ACE001993CD /* LPMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPMainVC.swift; sourceTree = "<group>"; };
+		AE3A71351D3E2AE0001993CD /* LPSearchLocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPSearchLocationVC.swift; sourceTree = "<group>"; };
+		AE3A71371D3E2AF2001993CD /* LPSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPSettingsVC.swift; sourceTree = "<group>"; };
+		AE3A713A1D3E3683001993CD /* LPLocationTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPLocationTVCell.swift; sourceTree = "<group>"; };
 		AE9CA9D41D3C36CD00E43D97 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9CA9E81D3C36CD00E43D97 /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9CA9EC1D3C36CD00E43D97 /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
@@ -67,6 +81,104 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AE3A71211D3DE9AD001993CD /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				AE3A71271D3DEAEF001993CD /* Managers */,
+				AE3A71281D3DEAEF001993CD /* Models */,
+				AE3A71221D3DE9AD001993CD /* Network */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		AE3A71221D3DE9AD001993CD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AE3A71231D3DEA05001993CD /* LPWeatherAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AE3A71271D3DEAEF001993CD /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		AE3A71281D3DEAEF001993CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AE3A71291D3DEB21001993CD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AE3A71391D3E3661001993CD /* LocationTVCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		AE3A712A1D3DEB21001993CD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AE3A712E1D3E2A90001993CD /* MainVC */,
+				AE3A712D1D3E2A90001993CD /* FavoritesVC */,
+				AE3A712F1D3E2A90001993CD /* SearchLocationVC */,
+				AE3A71301D3E2A90001993CD /* SettingsVC */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AE3A712B1D3DEB21001993CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AE3A712D1D3E2A90001993CD /* FavoritesVC */ = {
+			isa = PBXGroup;
+			children = (
+				AE3A71311D3E2ABB001993CD /* LPFavoritesVC.swift */,
+			);
+			path = FavoritesVC;
+			sourceTree = "<group>";
+		};
+		AE3A712E1D3E2A90001993CD /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				AE3A71331D3E2ACE001993CD /* LPMainVC.swift */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		AE3A712F1D3E2A90001993CD /* SearchLocationVC */ = {
+			isa = PBXGroup;
+			children = (
+				AE3A71351D3E2AE0001993CD /* LPSearchLocationVC.swift */,
+			);
+			path = SearchLocationVC;
+			sourceTree = "<group>";
+		};
+		AE3A71301D3E2A90001993CD /* SettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				AE3A71371D3E2AF2001993CD /* LPSettingsVC.swift */,
+			);
+			path = SettingsVC;
+			sourceTree = "<group>";
+		};
+		AE3A71391D3E3661001993CD /* LocationTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE3A713A1D3E3683001993CD /* LPLocationTVCell.swift */,
+			);
+			path = LocationTVCell;
+			sourceTree = "<group>";
+		};
 		AE9CA9CB1D3C36CD00E43D97 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				AE9CA9F71D3C374F00E43D97 /* Application */,
+				AE3A71211D3DE9AD001993CD /* DataLayer */,
 				AE9CA9FA1D3C374F00E43D97 /* Presentation */,
 				AE9CA9FE1D3C374F00E43D97 /* Resources */,
 			);
@@ -111,6 +224,7 @@
 			children = (
 				AE9CA9F81D3C374F00E43D97 /* AppDelegate.swift */,
 				AE9CA9F91D3C374F00E43D97 /* Info.plist */,
+				AE3A71251D3DEA6F001993CD /* WeatherConstant.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -119,6 +233,9 @@
 			isa = PBXGroup;
 			children = (
 				AE9CA9FB1D3C374F00E43D97 /* Storyboards */,
+				AE3A712A1D3DEB21001993CD /* ViewControllers */,
+				AE3A71291D3DEB21001993CD /* Cells */,
+				AE3A712B1D3DEB21001993CD /* Views */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -126,8 +243,8 @@
 		AE9CA9FB1D3C374F00E43D97 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				AE9CA9FC1D3C374F00E43D97 /* LaunchScreen.storyboard */,
 				AE9CA9FD1D3C374F00E43D97 /* Main.storyboard */,
+				AE9CA9FC1D3C374F00E43D97 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -301,7 +418,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3A713B1D3E3683001993CD /* LPLocationTVCell.swift in Sources */,
+				AE3A71341D3E2ACE001993CD /* LPMainVC.swift in Sources */,
+				AE3A71381D3E2AF2001993CD /* LPSettingsVC.swift in Sources */,
+				AE3A71261D3DEA70001993CD /* WeatherConstant.swift in Sources */,
 				AE9CAA001D3C374F00E43D97 /* AppDelegate.swift in Sources */,
+				AE3A71321D3E2ABB001993CD /* LPFavoritesVC.swift in Sources */,
+				AE3A71241D3DEA05001993CD /* LPWeatherAPI.swift in Sources */,
+				AE3A71361D3E2AE0001993CD /* LPSearchLocationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,10 +537,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lyubomyr Hlozhyk (C9YUGYD9K9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lyubomyr Hlozhyk (C9YUGYD9K9)";
 				INFOPLIST_FILE = WeatherApp/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LP.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4fcc5a52-951a-4057-b94f-db0c2fa3bfa0";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -427,10 +555,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lyubomyr Hlozhyk (C9YUGYD9K9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lyubomyr Hlozhyk (C9YUGYD9K9)";
 				INFOPLIST_FILE = WeatherApp/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LP.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4fcc5a52-951a-4057-b94f-db0c2fa3bfa0";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
