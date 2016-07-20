@@ -11,4 +11,12 @@ import UIKit
 class LPLocationTVCell: UITableViewCell {
     
     @IBOutlet private weak var titleLbl: UILabel!
+    
+    override func prepareForReuse() {
+        titleLbl.text = ""
+    }
+    
+    func update(title: String?) {
+        titleLbl.text = title ?? ""
+    }
 }

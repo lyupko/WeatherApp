@@ -24,7 +24,7 @@ class LPSearchLocationVC: UIViewController {
     // MARK: - Private Properties
     private var searchBar = UISearchBar()
     
-    private var locationsList = []
+    private var locationsList = [[String: AnyObject]]()
     
     // MARK: - Constructors
     override func viewDidLoad() {
@@ -103,7 +103,24 @@ class LPSearchLocationVC: UIViewController {
     }
     
     @objc private func searchLocation(text: String) {
+        let allowSearchWithQueryLength = 2
+        
+        guard text.isEmpty || text.characters.count >= allowSearchWithQueryLength else {
+            locationsList.removeAll()
+            tableView.reloadData()
+            return
+        }
+        
         SVProgressHUD.show()
+        LPWeatherAPI.searchLocation(query: text) { [weak self] (object, success, message) in
+            guard let strongSelf = self else { return }
+            SVProgressHUD.dismiss()
+            if success {
+                strongSelf.locationsList.removeAll()
+                strongSelf.locationsList += object!["RESULTS"] as! [[String: AnyObject]]
+                strongSelf.tableView.reloadData()
+            }
+        }
     }
     
     private func addToFavorite() {
@@ -114,7 +131,6 @@ class LPSearchLocationVC: UIViewController {
 extension LPSearchLocationVC: UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        SVProgressHUD.dismiss()
         NSObject.cancelPreviousPerformRequestsWithTarget(self)
         self.performSelector(#selector(searchLocation), withObject: searchText, afterDelay: 0.5)
     }
@@ -130,12 +146,17 @@ extension LPSearchLocationVC: UITableViewDelegate {
 extension LPSearchLocationVC: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 6//locationsList.count
+        return locationsList.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(String(LPLocationTVCell))
-        return cell!
+        let cell = tableView.dequeueReusableCellWithIdentifier(String(LPLocationTVCell)) as! LPLocationTVCell
+        
+        if let item: [String: AnyObject] = locationsList[indexPath.row] {
+            cell.update(item["name"] as? String)
+        }
+
+        return cell
     }
     
 }

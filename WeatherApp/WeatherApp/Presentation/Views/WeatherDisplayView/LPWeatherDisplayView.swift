@@ -1,5 +1,5 @@
 //
-//  LPWeatherCVCell.swift
+//  LPWeatherDisplayView.swift
 //  WeatherApp
 //
 //  Created by Lyubomyr Hlozhyk on 7/19/16.
@@ -8,16 +8,11 @@
 
 import UIKit
 
-class LPWeatherCVCell: UICollectionViewCell {
+class LPWeatherDisplayView: UIView {
     
     @IBOutlet private weak var cityTitleLbl: UILabel!
     @IBOutlet private weak var temperatureTitleLbl: UILabel!
     @IBOutlet private weak var feelingTitleLbl: UILabel!
     @IBOutlet private weak var tempLimitTitleLbl: UILabel!
-    
-    
-    override func awakeFromNib() {
-        self.backgroundColor = UIColor.clearColor()
-    }
     
 }

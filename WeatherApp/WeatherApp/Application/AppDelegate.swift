@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         customizeUI()
         
         if didFinishLaunchingOnce() {
-        
+            Location.createDefaultLocation()
         }
         
         return true

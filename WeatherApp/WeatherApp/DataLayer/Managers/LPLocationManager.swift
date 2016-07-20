@@ -17,33 +17,43 @@ class LPLocationManager: NSObject {
         return coordinate!
     }
     private var coordinate: CLLocationCoordinate2D? = nil
-    private var locationController: CLLocationManager? = nil
+    private var locationManager = CLLocationManager()
     
     override init() {
       super.init()
+      setUpLocationController()
     }
     
-    private func setUpLocationController() {
-        locationController = CLLocationManager()
-        locationController!.delegate = self
-        locationController!.desiredAccuracy = kCLLocationAccuracyBest
-        locationController!.distanceFilter = kCLDistanceFilterNone
-        locationController!.requestAlwaysAuthorization()
-        locationController!.startUpdatingLocation()
+    //MARK: - Public methods
     
-        if CLLocationManager.locationServicesEnabled() {
-            locationController!.startUpdatingLocation()
-        }
-        
-        coordinate = (locationController!.location?.coordinate)!
+    func registerLocation() {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    //MARK: - Private methods
+    
+    private func setUpLocationController() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
 }
 
 extension LPLocationManager: CLLocationManagerDelegate {
     
-    @objc func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             coordinate = location.coordinate
         }
+        manager.stopUpdatingLocation()
+        NSNotificationCenter.defaultCenter().postNotificationName("findLocationOfUser", object: self)
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+       
+        if CLLocationManager.locationServicesEnabled() && CLLocationManager.authorizationStatus() == .Denied {
+            NSNotificationCenter.defaultCenter().postNotificationName("locationDisabled", object: self)
+        }
+        
     }
 }
